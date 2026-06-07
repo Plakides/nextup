@@ -140,10 +140,10 @@ body::after{
   padding:20px 22px;backdrop-filter:blur(10px);
 }
 
-h1.title{font-family:var(--mono);font-size:32px;letter-spacing:2px;margin:0 0 4px;line-height:1.06;}
+h1.title{font-family:var(--mono);font-size:34px;letter-spacing:2px;margin:0 0 4px;line-height:1.06;}
 h1.title .nx{color:var(--cyan);text-shadow:0 0 22px rgba(52,227,212,.55);}
 h1.title .up{color:var(--amber);}
-.subtitle{color:var(--amber);letter-spacing:5px;font-size:12px;text-transform:uppercase;margin:0 0 14px;}
+.subtitle{color:var(--amber);letter-spacing:5px;font-size:12px;text-transform:uppercase;margin:0 0 12px;}
 .lead{font-family:var(--serif);font-size:17px;line-height:1.6;color:var(--ink);max-width:64ch;}
 .lead.muted{color:var(--muted);}
 .note{font-family:var(--serif);font-style:italic;color:var(--muted);}
@@ -236,8 +236,14 @@ ul.premise b{color:var(--cyan);font-style:normal;}
 /* ---------- intro / title screen ---------- */
 .intro-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:18px;align-items:stretch;width:100%;}
 @media(max-width:900px){.intro-grid{grid-template-columns:1fr;}}
-.intro-main{display:flex;flex-direction:column;justify-content:center;}
-.intro-main .intro-go{align-self:flex-start;width:clamp(260px,80%,320px);text-align:center;padding-left:0;padding-right:0;}
+.intro-main{display:flex;flex-direction:column;justify-content:center;gap:4px;}
+.intro-main .lead{max-width:52ch;margin:2px 0 0;}
+.intro-rules{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0 4px;}
+.irule{font-family:var(--mono);font-size:12.5px;letter-spacing:.3px;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;padding:6px 14px;background:rgba(34,211,238,.04);}
+.irule b{color:var(--cyan);font-weight:700;}
+.intro-main .mir-notice{margin:14px 0 4px;max-width:52ch;}
+.intro-main .intro-go{align-self:flex-start;width:clamp(260px,80%,320px);text-align:center;padding-left:0;padding-right:0;margin-top:14px;}
 .intro-loop{display:flex;flex-direction:column;gap:10px;justify-content:center;}
 .ip-head{font-size:11px;letter-spacing:2px;color:var(--cyan);text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:2px;}
 .ip-head::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);}
@@ -861,15 +867,12 @@ hr.sep{border:none;border-top:1px solid var(--line);margin:22px 0;}
           <div class="card-surface intro-main">
             <p class="subtitle">RECOMMENDER SYSTEM · TRAINING SIM</p>
             <h1 class="title"><span class="nx">NEXT</span><span class="up">UP</span>: Feed Architect</h1>
-            <p class="lead">You are the recommendation algorithm for <b style="color:var(--cyan)">NEXTUP</b>, a fictional video platform. Your job: decide what to feed a real-feeling viewer next.</p>
-            <ul class="premise">
-              <li>Inspect behavioural signals: watches, searches, skips and likes.</li>
-              <li>Choose <b>1 of 5</b> recommendations each round.</li>
-              <li>Your choices <b>train the feed</b> — helpful, addictive, balanced or messy.</li>
-              <li>After <b>10 rounds</b>, your algorithm is audited.</li>
-            </ul>
-            <p class="note">No real platforms. No private messages or emails — only behavioural signals a recommender could realistically use.</p>
-            <p class="note mir-notice">This simulation tracks your in-game choices to show how behavioural profiling works. No real account, browser or personal data is collected.</p>
+            <p class="lead">You are the recommendation algorithm for <b style="color:var(--cyan)">NEXTUP</b>, a fictional video platform. Each round, you decide what a real-feeling viewer sees next.</p>
+            <div class="intro-rules">
+              <span class="irule"><b>1 of 5</b> picks each round</span>
+              <span class="irule"><b>10</b> rounds</span>
+              <span class="irule">then <b>audited</b></span>
+            </div>
             <button class="primary-btn intro-go" onclick="go('character')">Initialise System &rarr;</button>
           </div>
           <aside class="card-surface intro-loop" aria-hidden="true">
